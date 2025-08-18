@@ -1,271 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Malwa Diagnostic Imaging | Ultrasound & Digital X‑ray – Ludhiana</title>
-  <meta name="description" content="Malwa Diagnostic Imaging – Ultrasound and Digital X‑ray centre in New Vijay Nagar, near Tajpur Road, Ludhiana 141007. Call 8198800260 for appointments." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Ccircle cx='128' cy='128' r='120' fill='%2300a'/%3E%3Cpath d='M64 140c28-60 100-60 128 0' stroke='%23fff' stroke-width='18' fill='none' stroke-linecap='round'/%3E%3Ccircle cx='98' cy='116' r='10' fill='%23fff'/%3E%3Ccircle cx='158' cy='116' r='10' fill='%23fff'/%3E%3C/svg%3E">
+  <title>Malwa Diagnostic Imaging</title>
   <style>
-    :root{
-      --bg:#0d1117;--panel:#0f172a;--text:#e5e7eb;--muted:#94a3b8;--brand:#22d3ee;--accent:#38bdf8;--ok:#22c55e;--warn:#f59e0b;
-    }
-    *{box-sizing:border-box}
-    html,body{margin:0;height:100%;font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;color:var(--text);background:linear-gradient(120deg,#0b1220,#0a0f1a 30%,#0b0f18)}
-    a{color:inherit;text-decoration:none}
-    .container{max-width:1200px;margin-inline:auto;padding:0 20px}
-    /* Navbar */
-    .nav{position:sticky;top:0;background:rgba(11,17,27,.7);backdrop-filter:blur(10px);border-bottom:1px solid #1f2937;z-index:50}
-    .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
-    .brand{display:flex;gap:12px;align-items:center}
-    .logo{width:36px;height:36px;border-radius:12px;background:linear-gradient(135deg,var(--brand),var(--accent));display:grid;place-items:center;box-shadow:0 8px 24px rgba(34,211,238,.35)}
-    .logo span{font-weight:800;color:#001827}
-    .brand h1{font-size:1.05rem;margin:0;font-weight:800;letter-spacing:.2px}
-    .nav a.btn{padding:10px 14px;border-radius:12px;border:1px solid #1f2a44}
-    .btn-primary{background:linear-gradient(135deg,var(--brand),var(--accent));color:#00101a;font-weight:800}
-    .btn-ghost{color:var(--text)}
-    /* Hero */
-    .hero{position:relative;overflow:hidden}
-    .hero::before{content:"";position:absolute;inset:-40px -10vw;background:radial-gradient(60% 60% at 20% 0%,rgba(34,211,238,.12),transparent 60%),radial-gradient(50% 50% at 90% 10%,rgba(56,189,248,.12),transparent 60%)}
-    .hero-inner{display:grid;grid-template-columns:1.25fr .9fr;gap:32px;align-items:center;padding:64px 0}
-    @media (max-width:960px){.hero-inner{grid-template-columns:1fr;padding:40px 0}}
-    .hero h2{font-size:clamp(1.8rem,3.2vw,3rem);line-height:1.1;margin:0 0 12px;font-weight:900}
-    .hero p{margin:6px 0 18px;color:var(--muted);font-size:1.05rem}
-    .badges{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0 20px}
-    .chip{border:1px solid #1f2a44;padding:6px 10px;border-radius:999px;font-size:.85rem;color:#cbd5e1}
-    .card{background:linear-gradient(180deg,#0e1624,#0b1422);border:1px solid #1f2a44;border-radius:18px;box-shadow:0 10px 30px rgba(0,0,0,.35)}
-    .hero .card{aspect-ratio:16/10;overflow:hidden;position:relative}
-    .hero img{width:100%;height:100%;object-fit:cover;opacity:.92;filter:saturate(1.1)}
-    /* Services */
-    .section{padding:56px 0}
-    .section h3{font-size:1.6rem;margin:0 0 18px}
-    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-    @media (max-width:900px){.grid{grid-template-columns:1fr 1fr}}@media (max-width:640px){.grid{grid-template-columns:1fr}}
-    .service{padding:18px;border-radius:18px}
-    .service h4{margin:0 0 8px;font-size:1.15rem}
-    .service p{margin:0;color:#cbd5e1;font-size:.95rem}
-    /* Gallery stripe */
-    .stripe-wrap{overflow:hidden;border-radius:16px;border:1px solid #1f2a44}
-    .stripe{display:flex;gap:8px;animation:scroll 40s linear infinite;padding:8px;will-change:transform}
-    .stripe:hover{animation-play-state:paused}
-    .tile{flex:0 0 360px;height:220px;border-radius:12px;overflow:hidden;position:relative}
-    .tile img{width:100%;height:100%;object-fit:cover}
-    .tile::after{content:attr(data-caption);position:absolute;left:10px;bottom:10px;background:rgba(0,0,0,.5);padding:6px 10px;border-radius:10px;font-size:.85rem}
-    @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-    /* Contact */
-    .contact{display:grid;grid-template-columns:1fr .9fr;gap:24px}
-    @media (max-width:960px){.contact{grid-template-columns:1fr}}
-    .card form{display:grid;gap:10px;padding:16px}
-    input,textarea{background:#0a1220;border:1px solid #1f2a44;color:var(--text);padding:12px;border-radius:12px;font-size:1rem}
-    label{font-size:.9rem;color:#cbd5e1}
-    .muted{color:var(--muted)}
-    .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:18px}
-    @media (max-width:700px){.kpis{grid-template-columns:repeat(2,1fr)}}
-    .kpi{padding:14px;border-radius:14px;text-align:center}
-    .kpi strong{display:block;font-size:1.4rem}
-    footer{border-top:1px solid #1f2937;margin-top:40px}
-    .foot{display:flex;gap:18px;justify-content:space-between;align-items:center;padding:18px 0;color:#9aa7b5;flex-wrap:wrap}
-    .links{display:flex;gap:14px;flex-wrap:wrap}
-    .map{min-height:320px;border:0;width:100%;border-radius:18px}
+    :root { --ink:#0f172a; --muted:#64748b; --primary:#2563eb; --ring:#93c5fd; --bg:#f8fafc; }
+    *{box-sizing:border-box} body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial; margin:0; background:var(--bg); color:var(--ink)}
+    header{background:var(--primary); color:#fff; padding:20px; text-align:center}
+    header h1{margin:0; font-size:1.8rem}
+    nav{margin-top:10px}
+    nav a{color:#fff; text-decoration:none; margin:0 10px; font-weight:500}
+    section{padding:40px 16px; max-width:960px; margin:auto}
+    .card{background:#fff; border-radius:16px; padding:24px; box-shadow:0 8px 30px rgba(2,6,23,.08); margin-bottom:30px}
+    h2{margin-top:0}
+    form{display:grid; grid-template-columns:repeat(6,1fr); gap:14px}
+    label{font-size:.9rem; color:var(--muted)}
+    input, select, textarea{width:100%; padding:12px 14px; border:1px solid #e5e7eb; border-radius:10px; font-size:1rem; outline:none; background:#fff}
+    input:focus, select:focus, textarea:focus{border-color:var(--primary); box-shadow:0 0 0 4px var(--ring)}
+    .col-3{grid-column:span 3}
+    .col-2{grid-column:span 2}
+    .col-1{grid-column:span 1}
+    .col-6{grid-column:span 6}
+    .btn{appearance:none; border:none; background:var(--primary); color:#fff; padding:12px 16px; border-radius:10px; font-weight:600; cursor:pointer}
+    .btn[disabled]{opacity:.55; cursor:not-allowed}
+    .status{margin-top:12px; font-weight:600}
+    .ok{color:#166534}
+    .err{color:#991b1b}
+    footer{background:#f1f5f9; padding:20px; text-align:center; font-size:.85rem; color:var(--muted)}
   </style>
 </head>
 <body>
-  <!-- NAVBAR -->
-  <header class="nav">
-    <div class="container nav-inner">
-      <div class="brand">
-        <div class="logo"><span>MD</span></div>
-        <h1>Malwa Diagnostic Imaging</h1>
-      </div>
-      <nav class="links">
-        <a href="#services" class="nav-link">Services</a>
-        <a href="#gallery" class="nav-link">Gallery</a>
-        <a href="#contact" class="nav-link">Contact</a>
-        <a class="btn btn-ghost" href="tel:+918198800260">Call: 8198800260</a>
-        <a class="btn btn-primary" href="#book">Book Appointment</a>
-      </nav>
-    </div>
+  <header>
+    <h1>Malwa Diagnostic Imaging</h1>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#booking">Book Appointment</a>
+      <a href="#contact">Contact</a>
+    </nav>
   </header>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="container hero-inner">
-      <div>
-        <h2>Your neighbourhood centre for <span style="background:linear-gradient(135deg,var(--brand),var(--accent));-webkit-background-clip:text;background-clip:text;color:transparent">Ultrasound & Digital X‑ray</span></h2>
-        <p>New Vijay Nagar, near Tajpur Road, Ludhiana – 141007</p>
-        <div class="badges">
-          <span class="chip">✔️ Board‑certified radiologist</span>
-          <span class="chip">🩻 Digital X‑ray</span>
-          <span class="chip">🧭 Same‑day reports</span>
-          <span class="chip">💬 WhatsApp: 8198800260</span>
-        </div>
-        <div style="display:flex;gap:10px;flex-wrap:wrap">
-          <a class="btn btn-primary" href="https://wa.me/918198800260" target="_blank" rel="noopener">WhatsApp Us</a>
-          <a class="btn btn-ghost" href="mailto:astradiagnosticsxray@gmail.com">astradiagnosticsxray@gmail.com</a>
-        </div>
-        <div class="kpis">
-          <div class="card kpi"><strong>15,000+</strong><span class="muted">Patients served</span></div>
-          <div class="card kpi"><strong>10+</strong><span class="muted">Years experience</span></div>
-          <div class="card kpi"><strong>&lt; 24h</strong><span class="muted">Report TAT</span></div>
-          <div class="card kpi"><strong>ISO</strong><span class="muted">Clean & safe</span></div>
-        </div>
-      </div>
-      <div class="card">
-        <img alt="Ultrasound scan room" src="https://images.unsplash.com/photo-1628348068343-c8fbf83f3017?q=80&w=1600&auto=format&fit=crop" />
-      </div>
-    </div>
+  <section id="about" class="card">
+    <h2>About Us</h2>
+    <p>Malwa Diagnostic Imaging offers state-of-the-art diagnostic services including Ultrasound, Digital X-ray, Doppler studies, and advanced obstetric scans. Our center is committed to accuracy, patient comfort, and timely reporting under the guidance of <strong>Dr. Harpreet Singh Saini, DMRD, DNB</strong>.</p>
   </section>
 
-  <!-- SERVICES -->
-  <section class="section container" id="services">
-    <h3>Our Services</h3>
-    <div class="grid">
-      <div class="card service">
-        <h4>Ultrasound (USG)</h4>
-        <p>Abdomen, pelvis, obstetrics level‑II, small parts, thyroid, scrotal, KUB, and Doppler studies.</p>
-      </div>
-      <div class="card service">
-        <h4>Digital X‑ray</h4>
-        <p>All routine views including chest, spine & extremities with fast digital processing.</p>
-      </div>
-      <div class="card service">
-        <h4>Reporting & Consultation</h4>
-        <p>Clear, structured reports with guidance for next steps where appropriate.</p>
-      </div>
-    </div>
+  <section id="services" class="card">
+    <h2>Our Services</h2>
+    <ul>
+      <li>Ultrasound (USG)</li>
+      <li>Digital X-Ray</li>
+      <li>Level II Obstetric Ultrasound</li>
+      <li>Doppler Studies</li>
+    </ul>
   </section>
 
-  <!-- GALLERY STRIPE -->
-  <section class="section container" id="gallery">
-    <h3>Centre Gallery</h3>
-    <p class="muted" style="margin:6px 0 14px">Hover to pause. Add your own photos by replacing the image URLs in the code.</p>
-    <div class="stripe-wrap card">
-      <div class="stripe" id="stripe">
-        <!-- Repeatable tiles (first set) -->
-        <div class="tile" data-caption="Digital X‑ray">
-          <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=1600&auto=format&fit=crop" alt="Digital X-ray"/>
-        </div>
-        <div class="tile" data-caption="Ultrasound Room">
-          <img src="https://images.unsplash.com/photo-1582719478250-14a1460d6985?q=80&w=1600&auto=format&fit=crop" alt="Ultrasound"/>
-        </div>
-        <div class="tile" data-caption="Patient Care">
-          <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=1600&auto=format&fit=crop" alt="Care"/>
-        </div>
-        <div class="tile" data-caption="Clean Facility">
-          <img src="https://images.unsplash.com/photo-1585432959449-b1c018bedd4a?q=80&w=1600&auto=format&fit=crop" alt="Facility"/>
-        </div>
-        <div class="tile" data-caption="Report Desk">
-          <img src="https://images.unsplash.com/photo-1573167243870-0f7f1f1f1e71?q=80&w=1600&auto=format&fit=crop" alt="Desk"/>
-        </div>
-        <!-- Duplicate for seamless loop -->
-        <div class="tile" data-caption="Digital X‑ray">
-          <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=1600&auto=format&fit=crop" alt="Digital X-ray"/>
-        </div>
-        <div class="tile" data-caption="Ultrasound Room">
-          <img src="https://images.unsplash.com/photo-1582719478250-14a1460d6985?q=80&w=1600&auto=format&fit=crop" alt="Ultrasound"/>
-        </div>
-        <div class="tile" data-caption="Patient Care">
-          <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=1600&auto=format&fit=crop" alt="Care"/>
-        </div>
-        <div class="tile" data-caption="Clean Facility">
-          <img src="https://images.unsplash.com/photo-1585432959449-b1c018bedd4a?q=80&w=1600&auto=format&fit=crop" alt="Facility"/>
-        </div>
-        <div class="tile" data-caption="Report Desk">
-          <img src="https://images.unsplash.com/photo-1573167243870-0f7f1f1f1e71?q=80&w=1600&auto=format&fit=crop" alt="Desk"/>
-        </div>
+  <section id="booking" class="card">
+    <h2>Book an Appointment</h2>
+    <form id="booking-form" action="https://formspree.io/f/REPLACE_WITH_YOUR_FORM_ID" method="POST">
+      <div class="col-3">
+        <label for="name">Full Name *</label>
+        <input id="name" name="name" type="text" required />
       </div>
-    </div>
+      <div class="col-3">
+        <label for="phone">Phone *</label>
+        <input id="phone" name="phone" type="tel" pattern="[0-9]{10}" required />
+      </div>
+      <div class="col-3">
+        <label for="service">Service *</label>
+        <select id="service" name="service" required>
+          <option value="">Select…</option>
+          <option>Ultrasound</option>
+          <option>Digital X-Ray</option>
+          <option>USG Level II (Obstetric)</option>
+          <option>Doppler</option>
+        </select>
+      </div>
+      <div class="col-2">
+        <label for="date">Preferred Date *</label>
+        <input id="date" name="date" type="date" required />
+      </div>
+      <div class="col-1">
+        <label for="time">Time *</label>
+        <input id="time" name="time" type="time" required />
+      </div>
+      <div class="col-6">
+        <label for="notes">Message (optional)</label>
+        <textarea id="notes" name="message" rows="4"></textarea>
+      </div>
+
+      <!-- ✅ Submit Button (added here) -->
+      <div class="col-6">
+        <button id="submitBtn" class="btn" type="submit">Submit Booking</button>
+        <div id="status" class="status" aria-live="polite"></div>
+      </div>
+
+      <input type="hidden" name="form_name" value="Malwa Booking" />
+      <input type="text" name="_gotcha" style="display:none" />
+    </form>
   </section>
 
-  <!-- CONTACT / BOOKING -->
-  <section class="section container" id="contact">
-    <h3>Contact & Timings</h3>
-    <div class="contact">
-      <div class="card" style="padding:16px">
-        <p><strong>Address:</strong> New Vijay Nagar, near Tajpur Road, Ludhiana – 141007</p>
-        <p><strong>Phone:</strong> <a href="tel:+918198800260">+91 81988 00260</a></p>
-        <p><strong>Email:</strong> <a href="mailto:astradiagnosticsxray@gmail.com">astradiagnosticsxray@gmail.com</a></p>
-        <p><strong>WhatsApp:</strong> <a href="https://wa.me/918198800260" target="_blank" rel="noopener">Message on WhatsApp</a></p>
-        <p class="muted">Mon–Sat: 9:00 AM – 7:00 PM • Sun: 10:00 AM – 2:00 PM</p>
-        <iframe class="map card" loading="lazy" allowfullscreen 
-          src="https://www.google.com/maps?q=New%20Vijay%20Nagar%2C%20Tajpur%20Road%2C%20Ludhiana&output=embed">
-        </iframe>
-      </div>
-      <div class="card" id="book">
-        <form onsubmit="event.preventDefault(); book();">
-          <h4 style="margin:10px 10px 0 10px">Book an Appointment</h4>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:10px">
-            <div>
-              <label for="name">Full Name</label>
-              <input id="name" required placeholder="Your name" />
-            </div>
-            <div>
-              <label for="phone">Phone</label>
-              <input id="phone" inputmode="tel" required placeholder="Mobile number" />
-            </div>
-            <div>
-              <label for="service">Service</label>
-              <input id="service" list="svc" placeholder="Ultrasound / X‑ray" />
-              <datalist id="svc">
-                <option>Ultrasound (USG)</option>
-                <option>Digital X‑ray</option>
-                <option>Doppler</option>
-              </datalist>
-            </div>
-            <div>
-              <label for="date">Preferred Date</label>
-              <input id="date" type="date" />
-            </div>
-            <div style="grid-column:1/-1">
-              <label for="msg">Message</label>
-              <textarea id="msg" rows="3" placeholder="Any details you’d like to add"></textarea>
-            </div>
-          </div>
-          <div style="display:flex;gap:10px;padding:0 10px 14px 10px">
-            <button class="btn btn-primary" type="submit">Request Slot</button>
-            <a class="btn btn-ghost" href="https://wa.me/918198800260?text=Hi%20Malwa%20Diagnostic%20Imaging%2C%20I'd%20like%20to%20book%20an%20appointment." target="_blank" rel="noopener">Book via WhatsApp</a>
-          </div>
-          <p id="book-status" class="muted" style="padding:0 12px 12px 12px"></p>
-        </form>
-      </div>
-    </div>
+  <section id="contact" class="card">
+    <h2>Contact Us</h2>
+    <p>📍 New Vijay Nagar, near Tajpur Road, Ludhiana — 141007</p>
+    <p>📞 <a href="tel:+918198800260">+91 81988 00260</a></p>
+    <p>📧 <a href="mailto:astradiagnosticsxray@gmail.com">astradiagnosticsxray@gmail.com</a></p>
   </section>
 
   <footer>
-    <div class="container foot">
-      <small>© <span id="yr"></span> Malwa Diagnostic Imaging • All rights reserved</small>
-      <div class="links">
-        <a href="#services">Services</a>
-        <span>•</span>
-        <a href="#gallery">Gallery</a>
-        <span>•</span>
-        <a href="#contact">Contact</a>
-      </div>
-    </div>
+    © 2025 Malwa Diagnostic Imaging. All rights reserved.
   </footer>
 
   <script>
-    // duplicate stripe children for smoother infinite loop if needed
     (function(){
-      const stripe=document.getElementById('stripe');
-      if(!stripe) return;
-      // already duplicated in HTML; ensure width > 2x viewport for seamless scroll
+      const form = document.getElementById('booking-form');
+      const status = document.getElementById('status');
+      const btn = document.getElementById('submitBtn');
+
+      function setStatus(msg, ok=true){
+        status.textContent = msg; status.className = 'status ' + (ok ? 'ok' : 'err');
+      }
+
+      form.addEventListener('submit', async (e)=>{
+        e.preventDefault();
+        if(!form.reportValidity()) return;
+        btn.disabled = true; setStatus('Submitting…');
+        try{
+          const data = new FormData(form);
+          const res = await fetch(form.action, { method: 'POST', body: data, headers: { 'Accept':'application/json' } });
+          if(res.ok){
+            form.reset();
+            setStatus('Thank you! Your booking request has been sent. We will confirm shortly.', true);
+          } else {
+            const out = await res.json().catch(()=>({}));
+            setStatus(out.error || 'Could not send. Please try again or WhatsApp us.', false);
+          }
+        } catch(err){
+          setStatus('Network error. Please try again or WhatsApp us.', false);
+        } finally {
+          btn.disabled = false;
+        }
+      });
     })();
-    function book(){
-      const n=document.getElementById('name').value.trim();
-      const p=document.getElementById('phone').value.trim();
-      const s=document.getElementById('service').value.trim()||'General';
-      const d=document.getElementById('date').value||'any day';
-      const m=encodeURIComponent(`Booking Enquiry\nName: ${n}\nPhone: ${p}\nService: ${s}\nDate: ${d}`);
-      const url=`https://wa.me/918198800260?text=${m}`;
-      document.getElementById('book-status').textContent='Thanks! Tap “Book via WhatsApp” to send us your details.';
-      // optionally open WhatsApp automatically:
-      window.open(url,'_blank');
-    }
-    document.getElementById('yr').textContent=new Date().getFullYear();
   </script>
 </body>
 </html>
+

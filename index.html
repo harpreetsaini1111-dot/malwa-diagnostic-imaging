@@ -1,191 +1,103 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8" />
-<title>Malwa Diagnostic Imaging – RIS</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<style>
-body{margin:0;font-family:Segoe UI,Arial,sans-serif;background:#f2f4f8}
-header{position:relative;background:radial-gradient(circle at top,#1e3a8a,#020617);color:#fff;padding:36px 24px 42px;text-align:center;overflow:hidden}
-.radiation{position:absolute;inset:-40%;background:repeating-conic-gradient(from 0deg,rgba(255,215,0,0.18) 0deg 12deg,transparent 12deg 24deg);animation:radiate 18s linear infinite;mix-blend-mode:screen}
-@keyframes radiate{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
-.telerad-globe{position:absolute;right:30px;bottom:-10px;width:120px;height:120px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#93c5fd,#1d4ed8,#020617);box-shadow:0 0 25px rgba(59,130,246,.6),inset 0 0 25px rgba(255,255,255,.3);animation:spin 12s linear infinite}
-@keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
-.malwa-title{font-size:72px;font-weight:900;letter-spacing:8px;text-transform:uppercase;background:linear-gradient(120deg,#fff8cc,#ffd700,#ffffff,#ffd700,#ffcc33);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.malwa-sub{margin-top:10px;font-size:22px;font-weight:600;letter-spacing:3px;color:#e0e7ff}
-.container{padding:20px}
-.card{background:#fff;border-radius:14px;padding:18px;margin-bottom:20px;box-shadow:0 10px 25px rgba(0,0,0,.08)}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
-input,select,button{padding:10px;border-radius:10px;border:1px solid #cbd5e1}
-button{cursor:pointer;font-weight:600}
-.btn-primary{background:#2563eb;color:#fff}
-.btn-success{background:#16a34a;color:#fff}
-.btn-danger{background:#dc2626;color:#fff}
-.btn-secondary{background:#475569;color:#fff}
-#editor{min-height:680px;border:1px solid #cbd5e1;border-radius:10px;padding:18px;background:#fff}
-.list{max-height:220px;overflow:auto;border:1px solid #e5e7eb;border-radius:6px}
-.list div{padding:8px;border-bottom:1px solid #e5e7eb;cursor:pointer}
-footer{text-align:center;padding:10px;font-size:12px;color:#64748b}
-</style>
+  <meta charset="UTF-8">
+  <title>Malwa Diagnostic Imaging – RIS</title>
+  <style>
+    body { font-family: Arial, sans-serif; background:#f4f6fb; margin:20px; }
+    h2 { margin-bottom:10px; }
+    .bar { background:#ffffff; padding:10px; margin-bottom:10px; border-radius:6px; box-shadow:0 1px 4px rgba(0,0,0,0.08); }
+    select, input { margin-right:6px; padding:4px; }
+    textarea { width:100%; height:350px; padding:10px; font-size:14px; }
+    button { padding:8px 14px; margin-right:6px; border:none; border-radius:5px; cursor:pointer; }
+    .btn-template { background:#2563eb; color:#fff; }
+    .btn-report { background:#16a34a; color:#fff; }
+  </style>
 </head>
 <body>
-<header>
-<div class="radiation"></div>
-<div class="malwa-title">MALWA</div>
-<div class="malwa-sub">Diagnostic Imaging • RIS</div>
-<div class="telerad-globe"></div>
-</header>
 
-<div class="container">
+<h2>Malwa Diagnostic Imaging – RIS</h2>
 
-<div class="card">
-<h3>Patient Details & Templates</h3>
-<div class="grid">
-<input id="patient_name" placeholder="Patient Name">
-<input id="uhid" placeholder="UHID">
-<input type="date" id="date">
-<select id="modality" onchange="loadTemplates()">
-<option value="CT">CT</option>
-<option value="MRI">MRI</option>
-<option value="USG">USG</option>
-<option value="XRAY">X-Ray</option>
-</select>
-<select id="templateSelect" onchange="applyTemplate()">
-<option value="">Select Template</option>
-</select>
-</div>
+<div class="bar">
+  Mode:
+  <select id="mode">
+    <option value="template">Template Mode</option>
+    <option value="report">Report Mode</option>
+  </select>
 </div>
 
-<div class="card">
-<h3>Report Editor</h3>
-<div id="editor" contenteditable="false"></div>
-<div class="grid" style="margin-top:10px">
-<button class="btn-secondary" id="editBtn" onclick="enableEdit()">Edit</button>
-<button class="btn-success" id="saveBtn" onclick="saveReport()" disabled>Save</button>
-<button class="btn-danger" onclick="clearEditor()">Clear</button>
-</div>
+<div class="bar">
+  Modality:
+  <select id="modality" onchange="loadTemplates()">
+    <option value="USG">USG</option>
+    <option value="CT">CT</option>
+    <option value="MRI">MRI</option>
+    <option value="XRAY">X-Ray</option>
+  </select>
+
+  Template:
+  <select id="templateList" onchange="loadTemplate()">
+    <option value="">-- Select Template --</option>
+  </select>
 </div>
 
-<div class="card">
-<h3>Upload Existing Report (DOCX)</h3>
-<div class="grid">
-<select id="uploadReportModality">
-<option value="CT">CT</option>
-<option value="MRI">MRI</option>
-<option value="USG">USG</option>
-<option value="XRAY">X-Ray</option>
-</select>
-<input type="file" id="reportFile" accept=".docx">
-<button class="btn-primary" onclick="uploadExistingReport()">Upload</button>
-</div>
+<div class="bar" id="patientBlock" style="display:none;">
+  Name <input id="name">
+  Age <input id="age" size="3">
+  Sex <input id="sex" size="2">
+  UHID <input id="uhid">
+  Ref <input id="ref">
+  Date <input type="date" id="date">
 </div>
 
-<div class="card">
-<h3>Find Saved Reports</h3>
-<div class="grid">
-<input placeholder="Patient name" id="search_patient">
-<button class="btn-primary" onclick="searchReports()">Search</button>
-</div>
-<div class="list" id="reportList"></div>
-</div>
+<textarea id="editor" placeholder="Write or load report template here..."></textarea>
 
+<div class="bar">
+  <button class="btn-template" onclick="saveTemplate()">Save Template</button>
+  <button class="btn-report" onclick="saveReport()">Save Report</button>
 </div>
-
-<footer>Malwa RIS</footer>
 
 <script>
-const API = "https://malwa-ris-backend.onrender.com";
-
 function loadTemplates(){
-  const m = modality.value;
-  templateSelect.innerHTML = '<option value="">Loading templates…</option>';
-  fetch(`${API}/api/templates/${m}`)
+  const modality = document.getElementById('modality').value;
+  fetch(`/templates?modality=${modality}`)
     .then(r=>r.json())
-    .then(list=>{
-      templateSelect.innerHTML = '<option value="">Select Template</option>';
-      list.forEach(t=>{
-        const o=document.createElement('option');
-        o.value=t.id;
-        o.textContent=t.name;
-        templateSelect.appendChild(o);
+    .then(data=>{
+      const sel=document.getElementById('templateList');
+      sel.innerHTML='<option value="">-- Select Template --</option>';
+      data.forEach(t=>{
+        sel.innerHTML+=`<option value="${t.id}">${t.name}</option>`;
       });
-    })
-    .catch(()=>templateSelect.innerHTML='<option>No templates</option>');
-}
-
-function applyTemplate(){
-  const id = templateSelect.value;
-  if(!id) return;
-  fetch(`${API}/api/load_template/${id}`)
-    .then(r=>r.json())
-    .then(d=>{
-      editor.innerHTML = d.html;
-      editor.contentEditable = false;
-      saveBtn.disabled = true;
-      editBtn.disabled = false;
     });
 }
 
-function enableEdit(){
-  editor.contentEditable = true;
-  editor.focus();
-  saveBtn.disabled = false;
-  editBtn.disabled = true;
+function loadTemplate(){
+  const id=document.getElementById('templateList').value;
+  if(!id) return;
+  fetch(`/templates/${id}`)
+    .then(r=>r.json())
+    .then(d=>{ document.getElementById('editor').value=d.html; });
+}
+
+function saveTemplate(){
+  if(document.getElementById('mode').value!=='template'){ alert('Switch to Template Mode'); return; }
+  const name=prompt('Template name');
+  if(!name) return;
+  fetch('/templates/save',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({modality:document.getElementById('modality').value,name:name+'.html',html:document.getElementById('editor').value})})
+    .then(()=>alert('Template saved'));
 }
 
 function saveReport(){
-  const payload={
-    patient_name:patient_name.value||"Unnamed",
-    uhid:uhid.value||"",
-    date:date.value||new Date().toISOString().slice(0,10),
-    modality:modality.value,
-    html:editor.innerHTML
-  };
-  fetch(`${API}/api/save_report`,{
-    method:"POST",
-    headers:{"Content-Type":"application/json"},
-    body:JSON.stringify(payload)
-  }).then(()=>alert("Report saved"));
+  if(document.getElementById('mode').value!=='report'){ alert('Switch to Report Mode'); return; }
+  fetch('/reports/save',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({modality:document.getElementById('modality').value,study:'General',patient:{name:document.getElementById('name').value,age:document.getElementById('age').value,sex:document.getElementById('sex').value,uhid:document.getElementById('uhid').value,ref:document.getElementById('ref').value,date:document.getElementById('date').value},final_html:document.getElementById('editor').value})})
+    .then(r=>r.json())
+    .then(d=>alert('Report saved\n'+d.link));
 }
 
-function searchReports(){
-  fetch(`${API}/api/reports?patient_name=${encodeURIComponent(search_patient.value)}`)
-  .then(r=>r.json())
-  .then(list=>{
-    reportList.innerHTML="";
-    list.forEach(r=>{
-      const d=document.createElement("div");
-      d.textContent=`${r.patient_name} | ${r.modality}`;
-      d.onclick=()=>loadReport(r.id);
-      reportList.appendChild(d);
-    });
-  });
-}
-
-function loadReport(id){
-  fetch(`${API}/api/load_report/${id}`)
-  .then(r=>r.json())
-  .then(d=>{
-    editor.innerHTML=d.html;
-    editor.contentEditable=false;
-    saveBtn.disabled=true;
-    editBtn.disabled=false;
-  });
-}
-
-function uploadExistingReport(){
-  const f=reportFile.files[0];
-  if(!f){alert("Select DOCX file");return;}
-  const fd=new FormData();
-  fd.append("file",f);
-  fd.append("modality",uploadReportModality.value);
-  fd.append("patient_name",patient_name.value||"Uploaded");
-  fetch(`${API}/api/upload_report`,{method:"POST",body:fd})
-  .then(()=>alert("Report uploaded"));
-}
-
-function clearEditor(){editor.innerHTML=""}
+document.getElementById('mode').addEventListener('change',e=>{
+  document.getElementById('patientBlock').style.display=e.target.value==='report'?'block':'none';
+});
 </script>
+
 </body>
 </html>
-
